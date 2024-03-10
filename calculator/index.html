@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="calu">
+        <input type="text" class="display" id="result">
+        
+       
+        <div class="buttons">
+            <div class="column">
+                <button class="clear" id="clear">AC</button>
+                <button class="number" value="7">7</button>
+                <button class="number" value="4">4</button>
+                <button class="number" value="1">1</button>
+                <button class="number" value="0">0</button>
+            </div>
+            <div class="column">
+                <button class="number" id="del">DEL</button>
+                <button class="number" value="8">8</button>
+                <button class="number" value="5">5</button>
+                <button class="number" value="2">2</button>
+                <button class="number" value="00">00</button>
+            </div>
+            <div class="column">
+                <button class="number" value="/">/</button>
+                <button class="number" value="9">9</button>
+                <button class="number" value="6">6</button>
+                <button class="number" value="3">3</button>
+                <button class="number" value=".">.</button>
+            </div>
+            <div class="column1">
+                <button class="number" value="/">%</button>
+                <button class="number" value="*">x</button>
+                <button class="number" value="-">-</button>
+                <button class="number" value="+">+</button>
+                <button class="number" id="equal">=</button>
+            
+            </div>
+            
+        </div>
+
+    </div>
+<script>
+    const display=document.getElementById("result")
+    const equalButton=document.getElementById("equal")
+    const clearButton=document.getElementById("clear")
+    const delButton=document.getElementById("del")
+    document.querySelectorAll('.number').forEach((button) => {
+        button.addEventListener("click",()=>{
+            display.value+=button.value;
+        })
+    })
+    equalButton.addEventListener("click",() =>
+    {
+        try{
+            display.value=eval(display.value)
+        }catch(error){
+            display.value="error"
+        }
+    })
+    clearButton.addEventListener("click",()=>
+    {
+        display.value="";
+    })
+    delButton.addEventListener("click",()=>
+    {
+        display.value="";
+    })
+
+
+    
+</script>
+</body>
+</html>
